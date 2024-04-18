@@ -1,0 +1,21 @@
+local g = vim.g
+local o = vim.o
+
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+g.mapleader = " "
+o.wrap = false
+o.smartindent = true
+o.relativenumber = true
+o.number = true
+o.termguicolors = true
+o.shiftwidth = 4
+o.tabstop = 4
+o.clipboard = "unnamedplus"
+o.undofile = true
+o.foldcolumn = "1"
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.foldenable = true
+o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
