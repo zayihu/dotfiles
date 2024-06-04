@@ -5,3 +5,5 @@
 - Fish - shell
 - Kitty - terminal emulator
 - Zellij - terminal multiplexer
+
+Bash script for symlinking to ./home/.config
