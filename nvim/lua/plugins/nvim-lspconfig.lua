@@ -1,7 +1,4 @@
 local on_attach = function(client, bufnr)
-	if client.server_capabilities.documentSymbolProvider then
-		require("nvim-navic").attach(client, bufnr)
-	end
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { silent = true })
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })

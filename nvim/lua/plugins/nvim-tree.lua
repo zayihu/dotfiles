@@ -10,6 +10,7 @@ return {
 		},
 		view = {
 			width = 36,
+			signcolumn = "no",
 		},
 		filters = {
 			dotfiles = false,

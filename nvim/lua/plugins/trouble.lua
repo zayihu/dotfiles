@@ -33,11 +33,35 @@ return {
 	},
 	opts = {},
 	keys = {
-		{ "<leader>xx", "<cmd>TroubleToggle<cr>", desc = "Trouble All" },
-		{ "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr", desc = "Trouble Workspace Diagnostics" },
-		{ "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Trouble Document Diagnostics" },
-		{ "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Trouble Quickfix" },
-		{ "<leader>xl", "<cmd>TroubleToggle loclist<cr>", desc = "Trouble Loclist" },
-		{ "gR", "<cmd>TroubleToggle lsp_references<cr>", desc = "Trouble LSP References" },
+		{
+			"<leader>xx",
+			"<cmd>Trouble diagnostics toggle<cr>",
+			desc = "Diagnostics (Trouble)",
+		},
+		{
+			"<leader>xX",
+			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+			desc = "Buffer Diagnostics (Trouble)",
+		},
+		{
+			"<leader>cs",
+			"<cmd>Trouble symbols toggle focus=false<cr>",
+			desc = "Symbols (Trouble)",
+		},
+		{
+			"<leader>cl",
+			"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+			desc = "LSP def & refs, ... (Trouble)",
+		},
+		{
+			"<leader>xL",
+			"<cmd>Trouble loclist toggle<cr>",
+			desc = "Location List (Trouble)",
+		},
+		{
+			"<leader>xQ",
+			"<cmd>Trouble qflist toggle<cr>",
+			desc = "Quickfix List (Trouble)",
+		},
 	},
 }

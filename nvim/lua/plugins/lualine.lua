@@ -1,9 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	event = {
-		"BufReadPre",
-		"BufNewFile",
-	},
+	event = "VeryLazy",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
@@ -15,11 +12,6 @@ return {
 			lualine_x = { "encoding", "fileformat", "filetype" },
 			lualine_y = { "progress" },
 			lualine_z = { "location" },
-		},
-		winbar = {
-			lualine_c = {
-				"navic",
-			},
 		},
 	},
 }
