@@ -4,7 +4,6 @@ return {
 	cmd = { "Mason" },
 	opts = {
 		ensure_installed = {
-			-- Linters and Formatters
 			"stylua",
 			"prettierd",
 			"ruff",

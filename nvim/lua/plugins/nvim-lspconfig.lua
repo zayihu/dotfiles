@@ -3,6 +3,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { silent = true })
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+	vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { desc = "Signature help" })
 	vim.keymap.set("n", "gd", function()
 		require("telescope.builtin").lsp_definitions()
 	end, { desc = "Goto Definition" })
@@ -39,15 +40,7 @@ return {
 		require("neodev").setup()
 
 		local servers = {
-			lua_ls = {
-				settings = {
-					Lua = {
-						completion = {
-							callSnippet = "Replace",
-						},
-					},
-				},
-			},
+			lua_ls = {},
 			phpactor = {
 				root_dir = function(_)
 					return vim.loop.cwd()
@@ -57,13 +50,23 @@ return {
 					["language_server_psalm.enabled"] = false,
 				},
 			},
+			vtsls = {
+				settings = {
+					typescript = {
+						updateImportsOnFileMove = { enabled = "always" },
+						suggest = {
+							completeFunctionCalls = true,
+						},
+					},
+				},
+			},
 		}
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"html",
 				"cssls",
-				"tsserver",
+				"vtsls",
 				"jsonls",
 				"pyright",
 				"lua_ls",

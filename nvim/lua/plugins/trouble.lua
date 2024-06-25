@@ -45,7 +45,7 @@ return {
 		},
 		{
 			"<leader>cs",
-			"<cmd>Trouble symbols toggle focus=false<cr>",
+			"<cmd>Trouble lsp_document_symbols toggle focus=false win.position=right<cr>",
 			desc = "Symbols (Trouble)",
 		},
 		{
