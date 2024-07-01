@@ -1,6 +1,6 @@
-## Zayihu's dotfiles
+## ☂️ Zayihu's dotfiles
 
-### Configs for:
+### 🍃 Configs for:
 - Neovim - IDE and text editor
 - Fish - shell
 - Kitty - terminal emulator
@@ -9,7 +9,7 @@
 
 Bash script for symlinking to ./home/.config
 
-Nvim screenshots:
+🎨 Nvim screenshots:
 
 ![](/img/nvim1.jpg)
 
