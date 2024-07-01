@@ -9,6 +9,12 @@ return {
 		exclude = {
 			filetypes = {
 				"dashboard",
+				"lazy",
+				"mason",
+				"trouble",
+				"Trouble",
+				"notify",
+				"help",
 			},
 		},
 	},

@@ -19,12 +19,6 @@ return {
 						action = "Telescope find_files",
 						key = "f",
 					},
-					{
-						desc = " Sessions",
-						group = "Label",
-						action = require("auto-session.session-lens").search_session,
-						key = "s",
-					},
 				},
 				packages = { enable = true },
 				project = { enable = false },

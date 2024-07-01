@@ -1,30 +1,3 @@
-local on_attach = function(client, bufnr)
-	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { silent = true })
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
-	vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { desc = "Signature help" })
-	vim.keymap.set("n", "gd", function()
-		require("telescope.builtin").lsp_definitions()
-	end, { desc = "Goto Definition" })
-	vim.keymap.set("n", "gr", function()
-		require("telescope.builtin").lsp_references()
-	end, { desc = "Goto References" })
-	vim.keymap.set("n", "gI", function()
-		require("telescope.builtin").lsp_implementations()
-	end, { desc = "Goto Implementation" })
-	vim.keymap.set("n", "gy", function()
-		require("telescope.builtin").lsp_type_definitions()
-	end, { desc = "Goto Type Definition" })
-end
-
-local function mergeTables(t1, t2)
-	for k, v in pairs(t2) do
-		t1[k] = v
-	end
-	return t1
-end
-
 return {
 	"nvim-lspconfig",
 	event = {
@@ -39,19 +12,28 @@ return {
 	config = function()
 		require("neodev").setup()
 
+		local utils = require("utils.general")
+
 		local servers = {
-			lua_ls = {},
-			phpactor = {
-				root_dir = function(_)
-					return vim.loop.cwd()
-				end,
-				init_options = {
-					["language_server_phpstan.enabled"] = false,
-					["language_server_psalm.enabled"] = false,
+			jsonls = {
+				settings = {
+					json = {
+						schemas = require("schemastore").json.schemas(),
+						validate = { enable = true },
+					},
 				},
 			},
 			vtsls = {
 				settings = {
+					vtsls = {
+						enableMoveToFileCodeAction = true,
+						autoUseWorkspaceTsdk = true,
+						experimental = {
+							completion = {
+								enableServerSideFuzzyMatch = true,
+							},
+						},
+					},
 					typescript = {
 						updateImportsOnFileMove = { enabled = "always" },
 						suggest = {
@@ -84,14 +66,14 @@ return {
 
 					local default = {
 						capabilities = capabilities,
-						on_attach = on_attach,
+						on_attach = utils.on_lsp_attach,
 					}
 
 					local settings = servers[server]
 					local setup_opts = default
 
 					if settings ~= nil then
-						setup_opts = mergeTables(setup_opts, settings)
+						setup_opts = utils.merge_tables(setup_opts, settings)
 					end
 
 					require("lspconfig")[server].setup(setup_opts)

@@ -6,7 +6,6 @@ return {
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-emoji",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
@@ -47,10 +46,11 @@ return {
 			}, {
 				{ name = "buffer" },
 			}),
+
 			formatting = {
 				format = require("lspkind").cmp_format({
 					mode = "symbol_text",
-					maxwidth = 50,
+					maxwidth = 45,
 					ellipsis_char = "...",
 					show_labelDetails = true,
 				}),

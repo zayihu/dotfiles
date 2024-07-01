@@ -29,7 +29,12 @@ return {
 	},
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
-		"folke/todo-comments.nvim",
+		{
+			"folke/todo-comments.nvim",
+			config = function()
+				require("todo-comments").setup()
+			end,
+		},
 	},
 	opts = {},
 	keys = {
@@ -51,7 +56,7 @@ return {
 		{
 			"<leader>cl",
 			"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-			desc = "LSP def & refs, ... (Trouble)",
+			desc = "LSP list (Trouble)",
 		},
 		{
 			"<leader>xL",
@@ -62,6 +67,29 @@ return {
 			"<leader>xQ",
 			"<cmd>Trouble qflist toggle<cr>",
 			desc = "Quickfix List (Trouble)",
+		},
+		{
+			"<leader>xt",
+			function()
+				require("todo-comments").setup()
+				require("trouble").toggle("todo")
+			end,
+			desc = "TODO list (Trouble)",
+		},
+		{
+			"]t",
+			function()
+				require("todo-comments").jump_next()
+			end,
+			desc = "Next todo comment",
+		},
+
+		{
+			"[t",
+			function()
+				require("todo-comments").jump_prev()
+			end,
+			desc = "Previous todo comment",
 		},
 	},
 }
