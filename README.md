@@ -15,4 +15,8 @@ Bash script for symlinking to ./home/.config
 
 ![](/img/nvim2.jpg)
 
+### Credits
+
+folke's ![LazyVim](https://github.com/LazyVim/LazyVim) for amazing source of inspiration.
+
 
