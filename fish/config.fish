@@ -4,8 +4,6 @@ end
 
 set -g fish_greeting ''
 
-set PATH $PATH /home/zaiyhu/.local/bin
-
 # plugins
 starship init fish | source
 zoxide init fish | source

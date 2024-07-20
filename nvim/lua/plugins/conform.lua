@@ -18,7 +18,7 @@ return {
 			php = { "php_cs_fixer" },
 		},
 		format_on_save = {
-			timeout_ms = 3000,
+			timeout_ms = 1500,
 			lsp_fallback = true,
 		},
 	},

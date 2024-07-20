@@ -12,6 +12,7 @@ o.smartindent = true
 o.wrap = false
 o.linebreak = true
 o.virtualedit = "block"
+o.formatexpr = "v:lua.require('conform').formatexpr()"
 -- sync system clipboard with nvim
 o.clipboard = "unnamedplus"
 --global status line
