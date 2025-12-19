@@ -4,8 +4,8 @@ return {
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
-			integrations = {},
+			integrations = { fzf = true, blink_cmp = true, grug_far = true },
 		})
-		vim.cmd([[colorscheme catppuccin]])
+		vim.cmd([[colorscheme catppuccin-mocha]])
 	end,
 }

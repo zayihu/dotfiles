@@ -7,5 +7,6 @@ ln -s "$SCRIPT_DIR/kitty" ~/.config
 ln -s "$SCRIPT_DIR/nvim" ~/.config
 ln -s "$SCRIPT_DIR/zellij" ~/.config
 ln -s "$SCRIPT_DIR/starship.toml" ~/.config
+ln -s "$SCRIPT_DIR/ags" ~/.config
 
 echo "Symlinked successfully"

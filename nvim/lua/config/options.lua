@@ -1,11 +1,14 @@
 local g = vim.g
 local o = vim.opt
 
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 g.mapleader = " "
--- numbers in status line
+
+o.mouse = ""
+o.termguicolors = true
 o.relativenumber = true
 o.number = true
--- indent and wrap, editing
 o.shiftwidth = 4
 o.tabstop = 4
 o.smartindent = true
@@ -13,26 +16,21 @@ o.wrap = false
 o.linebreak = true
 o.virtualedit = "block"
 o.formatexpr = "v:lua.require('conform').formatexpr()"
--- sync system clipboard with nvim
 o.clipboard = "unnamedplus"
---global status line
 o.laststatus = 3
--- sync update with disk time
 o.updatetime = 200
 o.showmode = false
 o.smoothscroll = true
--- hide nvim default start screen
-o.shortmess:append("sI")
--- highlight cursor line
-o.cursorline = true
--- undo
+o.shortmess:append({ W = true, I = true, c = true, C = true })
+o.cursorline = false
+o.completeopt = "menu,menuone,noselect"
+o.wildmode = "longest:full,full"
 o.undofile = true
 o.undolevels = 10000
--- folding
 o.foldtext = ""
 o.foldmethod = "expr"
 o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-o.foldcolumn = "1"
+o.foldcolumn = "0"
 o.foldlevel = 99
 o.foldlevelstart = 99
 o.foldenable = true
@@ -42,12 +40,19 @@ o.fillchars = {
 	foldopen = "",
 	foldsep = " ",
 	foldclose = "",
-	wbr = " ",
-	horiz = " ",
-	horizup = " ",
-	horizdown = " ",
-	vert = " ",
-	vertleft = " ",
-	vertright = " ",
-	verthoriz = " ",
 }
+
+vim.diagnostic.config({
+	virtual_lines = { current_line = true },
+	severity_sort = true,
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "",
+		},
+	},
+	update_in_insert = true,
+	underline = true,
+})

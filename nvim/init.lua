@@ -1,2 +1,1 @@
--- HACK: jjjjjj
-require("core")
+require("config")

@@ -11,8 +11,8 @@ Bash script for symlinking to ./home/.config
 
 🎨 Nvim screenshots:
 
-![](/img/nvim1.jpg)
+![Image 1](./img/nvim1.jpg)
 
-![](/img/nvim2.jpg)
+![Image 2](./img/nvim2.jpg)
 
 

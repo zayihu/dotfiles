@@ -8,7 +8,7 @@ return {
 			opts = {
 				fps = 60,
 				level = 2,
-				max_width = 50,
+				max_width = 45,
 				max_height = 5,
 				render = "default",
 				stages = "fade_in_slide_out",

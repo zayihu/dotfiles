@@ -2,7 +2,6 @@ return {
 	"mfussenegger/nvim-lint",
 	event = {
 		"BufReadPre",
-		"BufWritePost",
 		"BufNewFile",
 	},
 	config = function()
@@ -17,10 +16,6 @@ return {
 			css = { "stylelint" },
 			php = { "phpstan" },
 		}
-
-		local eslint = lint.linters.eslint_d
-
-		table.insert(eslint.args, 1, "--no-warn-ignored")
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 

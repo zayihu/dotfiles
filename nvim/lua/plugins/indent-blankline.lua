@@ -8,7 +8,6 @@ return {
 	opts = {
 		exclude = {
 			filetypes = {
-				"dashboard",
 				"lazy",
 				"mason",
 				"trouble",
